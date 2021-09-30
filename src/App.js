@@ -4,18 +4,31 @@ import React from 'react';
 //function Food(props){
 //  return <h1>I like {props.fav}</h1>
 //}
-function Food({ fav }) {
-  return <h1>I like {fav}</h1>
+function Food({ name, pic }) {
+  return <div>
+    <h2>I like {name}</h2>
+    <img src={pic} alt={name} />
+  </div>
+}
+
+const foodLike = [{
+  id: 1,
+  name: "Kimchi",
+  image: "https://kstory365.files.wordpress.com/2015/01/kimchi-01-cabbage.jpg"
+},
+{
+  id: 2,
+  name: "samgyetang",
+  image: "https://img.seoul.co.kr//img/upload/2019/07/25/SSI_20190725184016.jpg"
+}];
+
+function renderFood(dish) {
+  return <Food key={dish.id} name={dish.name} pic={dish.image} />
 }
 
 function App() {
-  return <div className="App">
-    <h3>hello!</h3>
-    <Food fav="kimchi" />
-    <Food fav="noodle" />
-    <Food fav="bread" />
-    <Food fav="candy" />
-    <Food fav="salt" />
+  return <div>
+    {foodLike.map(renderFood)}
   </div>;
 }
 
