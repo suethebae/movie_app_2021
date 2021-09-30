@@ -26,6 +26,7 @@ function renderFood(dish) {
   return <Food key={dish.id} name={dish.name} pic={dish.image} />
 }
 
+
 function App() {
   return <div>
     {foodLike.map(renderFood)}
